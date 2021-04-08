@@ -2,41 +2,24 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Chart from './components/Chart/Chart';
-import Filters from './components/Filters/Filters';
 import Footer from './components/Footer/Footer';
+import ChartPage from './components/ChartPage/ChartPage';
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
-      <span class="wrapper">
+      <span className="wrapper">
         <div className='main-head'>
           <Header />
         </div>
 
-        <nav class="main-nav">
+        <nav className="main-nav">
           <Navbar />
         </nav>
 
-        <article class="content">
-          <Route path='/'
-            render={() => {
-              return <Chart
-                options={props.state.chartOptions}
-                dispatch={props.dispatch} />
-            }} />
-        </article>
+        <Route path='/:page' render={() => { return <ChartPage /> }} />
 
-        <aside class="side">
-          <Route path='/'
-            render={() => {
-              return <Filters
-                options={props.state.chartOptions}
-                dispatch={props.dispatch} />
-            }} />
-        </aside>
-
-        <footer class="main-footer">
+        <footer className="main-footer">
           <Footer />
         </footer>
       </span>

@@ -1,13 +1,13 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import styles from './Chart.module.css';
 
 const Chart = (props) => {
   return (
-    <>
-      <h3>GMPC, Length = 10</h3>
+    <div className={styles.chartContainer}>
       <HighchartsReact highcharts={Highcharts} options={props.options} />
-    </>
+    </div>
   );
 }
 
